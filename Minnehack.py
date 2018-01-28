@@ -104,7 +104,7 @@ check = resultCheckANDOR(r,
     )
 if check:
     print("Were you ever unconcious?")
-    check = resultCheck(r, [
+    check = resultCheckOR(r, [
         ["yeah", "yes"],
         ["no", "nah", "nope"]
         ], [returningTrue, returningFalse], [
@@ -127,7 +127,7 @@ if check:
             category3()
     else:
         print("Did you experience some form of head trauma?")
-        check = resultCheck(r, [
+        check = resultCheckOR(r, [
         ["yeah", "yes"],
         ["no", "nah", "nope"]
         ], [returningTrue, returningFalse], [
@@ -138,7 +138,7 @@ if check:
             category1()
         else:
             print("What are some of your symptoms?")
-            check = resultCheck(r, [
+            check = resultCheckOR(r, [
                 ["pain", "lightheadedness", "blurred vision", "sensitivity"],
                 ["weakness", "sudden", "severe", "headaches", "confusion", "numbness", "difficulty"]
                 ], [returningTrue, returningFalse], [
