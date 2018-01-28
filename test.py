@@ -8,6 +8,17 @@ import speech_recognition as sr
 
 
 
+
+def fetchFirstInt(string):
+	dlist = string.split()
+	for stre in dlist:
+		if stre.isdigit():
+			return int(stre)
+	return False
+
+
+
+
 def getListen(recognizer):
 	with sr.Microphone() as source:
 		audio = recognizer.listen(source)
@@ -129,6 +140,13 @@ I_AM_GOD = resultCheckANDOR(r,
 )
 
 print(I_AM_GOD)
+
+
+
+print("I AM GOD")
+print(getListen(r))
+
+
 
 
 
