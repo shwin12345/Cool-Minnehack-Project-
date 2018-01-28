@@ -23,7 +23,8 @@ def getListen(recognizer):
 	with sr.Microphone() as source:
 		audio = recognizer.listen(source)
 	try:
-		return recognizer.recognize_google(audio)
+		res = recognizer.recognize_google(audio)
+		return res
 	except sr.UnknownValueError:
 		return ":("
 	except sr.RequestError:
@@ -47,10 +48,12 @@ def stringMatch(string, list2):
 def stringMatchAll(string, list2):
 	DECISIONOFALIFETIMEPLEASEHELPME = False
 	for stre in list2:
+		
 		if stre in string:
+			
 			DECISIONOFALIFETIMEPLEASEHELPME = True
 		else:
-			DECISIONOFALIFETIMEPLEASEHELPME = False		
+			return False	
 
 	return DECISIONOFALIFETIMEPLEASEHELPME
  
@@ -102,4 +105,4 @@ def resultCheckANDOR(recognizer, keyANDList, keyOR, funcs, ANDParamList, ORParam
 			elif stringMatch(result, keyOR[i]):
 				return funcs[i](*ORParamaList[i])
 	print("Invalid voice input, please retry.")
-resultCheckANDOR(recognizer, keyANDList, keyOR, funcs, ANDParamList, ORParamaList)
+	resultCheckANDOR(recognizer, keyANDList, keyOR, funcs, ANDParamList, ORParamaList)
